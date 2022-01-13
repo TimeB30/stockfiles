@@ -13,7 +13,8 @@ def start_message(message: Message):
     bot.send_message(chat_id=message.from_user.id,text='❗Для начала поиска напишите идентификационный номер файла, например 89663-22220 или 22220❗')
 @bot.message_handler()
 def echo(message: Message):
-    bot.send_message(chat_id=message.from_user.id,text= message.text)
+    #bot.send_message(chat_id=message.from_user.id,text= message.text)
+    bot.reply_to(message,message.text)
 @server.route('/'+TOKEN, methods = ['POST'])
 def get_message():
     json_stirng = request.get_data().decode('utf-8')
